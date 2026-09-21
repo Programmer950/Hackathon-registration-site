@@ -13,6 +13,9 @@
 }
 
 @layer base {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
   body {
     background-color: #000000;
     color: #f4f4f5;

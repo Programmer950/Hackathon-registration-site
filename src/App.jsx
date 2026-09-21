@@ -9,11 +9,13 @@ import ContactFaculty from './components/ContactFaculty';
 import FAQFooter from './components/FAQFooter';
 import PageBackground from './components/PageBackground';
 import SmoothScroll from './components/SmoothScroll';
+import CyberCursorGlow from './components/CyberCursorGlow';
 
 function App() {
   return (
     <SmoothScroll>
-      <div className="bg-black min-h-screen text-white font-sans selection:bg-white selection:text-black overflow-x-hidden">
+      <div className="bg-black min-h-screen text-white font-sans selection:bg-white selection:text-black overflow-x-hidden relative">
+        <CyberCursorGlow />
         <Navbar />
         
         {/* Hero with its dedicated Three.js Interactive Background */}

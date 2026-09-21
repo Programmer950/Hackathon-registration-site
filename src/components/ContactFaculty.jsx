@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Award, Shield } from 'lucide-react';
 
@@ -40,6 +40,14 @@ const facultyData = {
 };
 
 const ContactFaculty = () => {
+  const [copiedEmail, setCopiedEmail] = useState(null);
+
+  const handleCopyEmail = (email) => {
+    navigator.clipboard.writeText(email);
+    setCopiedEmail(email);
+    setTimeout(() => setCopiedEmail(null), 2000);
+  };
+
   return (
     <section id="faq" className="px-6 md:px-16 py-20 bg-transparent border-t border-white/10">
       <div className="max-w-7xl mx-auto flex flex-col gap-14">
@@ -63,12 +71,20 @@ const ContactFaculty = () => {
           <div>
             <h3 className="text-xs font-mono tracking-widest uppercase text-zinc-400 mb-4">// Contact</h3>
             <div className="flex flex-col sm:flex-row gap-4 text-base font-mono">
-              <a href="mailto:hello@cybersentinels.com" className="text-zinc-300 hover:text-white transition-colors underline decoration-white/20 underline-offset-4">
-                hello@cybersentinels.com
-              </a>
-              <a href="mailto:support@cybersentinels.com" className="text-zinc-300 hover:text-white transition-colors underline decoration-white/20 underline-offset-4">
-                support@cybersentinels.com
-              </a>
+              {["hello@cybersentinels.com", "support@cybersentinels.com"].map((email) => (
+                <button
+                  key={email}
+                  onClick={() => handleCopyEmail(email)}
+                  className="text-left text-zinc-300 hover:text-white transition-all underline decoration-white/20 hover:decoration-white underline-offset-4 relative group cursor-pointer"
+                >
+                  <span>{email}</span>
+                  {copiedEmail === email && (
+                    <span className="ml-2 font-mono text-[10px] text-emerald-400 bg-zinc-900 px-2 py-0.5 rounded border border-emerald-500/30">
+                      Copied!
+                    </span>
+                  )}
+                </button>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -92,16 +108,17 @@ const ContactFaculty = () => {
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -5, scale: 1.015, borderColor: "rgba(255, 255, 255, 0.4)" }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/90 border border-white/20 flex flex-col justify-between shadow-lg relative overflow-hidden group hover:border-white/40 transition-all"
+              transition={{ duration: 0.3 }}
+              className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/90 border border-white/20 flex flex-col justify-between shadow-lg relative overflow-hidden group transition-all"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-xl pointer-events-none group-hover:bg-white/10 transition-colors" />
               <div>
                 <span className="font-mono text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-zinc-900 border border-white/20 text-white font-semibold inline-block mb-3">
                   {facultyData.convener.role}
                 </span>
-                <h3 className="text-lg font-bold text-white mb-1">
+                <h3 className="text-lg font-bold text-white mb-1 group-hover:text-zinc-100 transition-colors">
                   {facultyData.convener.name}
                 </h3>
                 <p className="text-xs text-zinc-300 font-medium">{facultyData.convener.designation}</p>
@@ -117,15 +134,16 @@ const ContactFaculty = () => {
                 key={idx} 
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5, scale: 1.015, borderColor: "rgba(255, 255, 255, 0.35)" }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.2 + idx * 0.08 }}
-                className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/70 border border-white/12 hover:border-white/30 transition-all duration-300 flex flex-col justify-between"
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/70 border border-white/12 flex flex-col justify-between group transition-all"
               >
                 <div>
                   <span className="font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-zinc-900 border border-white/15 text-zinc-300 inline-block mb-3">
                     {item.role}
                   </span>
-                  <h3 className="text-base font-semibold text-white mb-1">
+                  <h3 className="text-base font-semibold text-white mb-1 group-hover:text-zinc-100 transition-colors">
                     {item.name}
                   </h3>
                   <p className="text-xs text-zinc-300">{item.designation}</p>
@@ -142,15 +160,16 @@ const ContactFaculty = () => {
                 key={idx} 
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5, scale: 1.015, borderColor: "rgba(255, 255, 255, 0.35)" }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.35 + idx * 0.08 }}
-                className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/70 border border-white/12 hover:border-white/30 transition-all duration-300 flex flex-col justify-between"
+                transition={{ duration: 0.3, delay: 0.15 + idx * 0.05 }}
+                className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/70 border border-white/12 flex flex-col justify-between group transition-all"
               >
                 <div>
                   <span className="font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-zinc-900 border border-white/15 text-zinc-300 inline-block mb-3">
                     {item.role}
                   </span>
-                  <h3 className="text-base font-semibold text-white mb-1">
+                  <h3 className="text-base font-semibold text-white mb-1 group-hover:text-zinc-100 transition-colors">
                     {item.name}
                   </h3>
                   <p className="text-xs text-zinc-300">{item.designation}</p>

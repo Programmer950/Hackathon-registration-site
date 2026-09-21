@@ -16,7 +16,7 @@ const TimelineNode = ({ item, index }) => {
       
       {/* Central Node Marker */}
       <div className="absolute left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
-        <div className="w-4 h-4 rounded-full bg-white border-2 border-black shadow-[0_0_15px_rgba(255,255,255,0.9)] z-10" />
+        <div className="w-4 h-4 rounded-full bg-white border-2 border-black shadow-[0_0_15px_rgba(255,255,255,0.9)] group-hover:scale-150 group-hover:shadow-[0_0_25px_rgba(255,255,255,1)] transition-all duration-300 z-10" />
       </div>
 
       {/* Content Container (Alternating Left & Right) */}
@@ -25,17 +25,18 @@ const TimelineNode = ({ item, index }) => {
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{ y: -4, scale: 1.015, borderColor: "rgba(255, 255, 255, 0.4)" }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="w-full md:w-5/12 p-6 rounded-xl bg-zinc-950/80 border border-white/10 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.9)] hover:border-white/30 transition-colors duration-300"
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="w-full md:w-5/12 p-6 rounded-xl bg-zinc-950/80 border border-white/10 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.9)] transition-all duration-300 cursor-pointer"
         >
           {/* Metallic Time Accent */}
-          <div className="font-mono text-sm font-bold text-white tracking-wider mb-2 inline-block px-3 py-1 rounded bg-zinc-900 border border-white/20">
+          <div className="font-mono text-sm font-bold text-white tracking-wider mb-2 inline-block px-3 py-1 rounded bg-zinc-900 border border-white/20 group-hover:border-white/40 transition-colors">
             {item.time}
           </div>
 
           {/* Event Title in Crisp White Sans-Serif */}
-          <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white mb-2">
+          <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white mb-2 group-hover:text-zinc-100 transition-colors">
             {item.event}
           </h3>
 
