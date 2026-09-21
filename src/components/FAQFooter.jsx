@@ -4,15 +4,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 const faqs = [
   {
     question: "Who can participate?",
-    answer: "The hackathon is open to all university students with a passion for cybersecurity and system design. You must be currently enrolled in an undergraduate or postgraduate program."
+    answer: "The hackathon is EXCLUSIVELY open to undergraduate students currently enrolled at Rajalakshmi Engineering College (REC) only. External college or university students are NOT eligible to participate."
   },
   {
-    question: "Is there any registration fee?",
-    answer: "No, participation is completely free. We also provide meals, snacks, and a workspace for the entire 24-hour duration."
+    question: "Is there a selection round before the finals?",
+    answer: "Yes, all registered teams must submit their project presentation deck for the PPT Round by 29th Sept. Only qualifying teams selected from the PPT round will proceed to the 5.5 hour campus Finals on 9th Oct."
   },
   {
     question: "Do I need a team?",
-    answer: "Yes, teams must consist of 2 to 4 members. We encourage diverse skill sets spanning frontend, backend, and security domains."
+    answer: "Yes, teams must consist of 4 members from Rajalakshmi Engineering College. Please note that it is mandatory for every team to have at least one female member."
+  },
+  {
+    question: "Is having a female team member mandatory?",
+    answer: "Yes, to promote diversity and collaborative innovation in cybersecurity, every participating team must have at least one female member."
+  },
+  {
+    question: "Is there any registration fee?",
+    answer: "No, participation is completely free. We also provide meals, snacks, and a workspace for the entire duration."
   },
   {
     question: "What should I bring?",

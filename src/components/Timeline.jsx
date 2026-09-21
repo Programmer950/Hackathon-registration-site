@@ -2,11 +2,10 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const schedule = [
-  { time: "09:00 AM", event: "Registration & Inauguration", details: "Check-in at the Main Auditorium, badge distribution & keynote address." },
-  { time: "09:30 AM", event: "Problem Statement Release", details: "Challenge domain briefs unlocked on portal. Environment access granted." },
-  { time: "10:30 AM", event: "Idea Building & Mentoring", details: "Interactive guidance sessions with cybersecurity industry experts." },
-  { time: "12:30 PM", event: "Final Presentation & Pitching", details: "Demonstrate working exploits, defense mechanisms, and code architecture." },
-  { time: "02:00 PM", event: "Results & Prize Distribution", details: "Announcement of winners, trophy presentation, and closing ceremony." }
+  { time: "22nd Sept", event: "Registrations", details: "Online team registrations open for all undergraduate engineering students of Rajalakshmi Engineering College." },
+  { time: "29th Sept", event: "PPT Submission Deadline", details: "Submit project ideas, problem statement choices, and presentation pitch decks on portal." },
+  { time: "5th Oct", event: "Finalist Announcement", details: "Official announcement of qualifying finalist teams selected to advance to the campus finals." },
+  { time: "9th Oct", event: "Hackathon Finals", details: "5.5 hour intensive live hackathon Finals for top qualifying teams on campus at Rajalakshmi Engineering College." }
 ];
 
 const TimelineNode = ({ item, index }) => {
@@ -80,7 +79,7 @@ const Timeline = () => {
             Event Timeline.
           </h2>
           <p className="text-zinc-400 font-light text-sm md:text-base">
-            From inauguration to code submissions — follow the structured progression of CYBERHACK 2026.
+            From registration opening to PPT submissions, finalist announcements, and campus finals — follow the progression of CYBERHACK 2026.
           </p>
         </div>
 

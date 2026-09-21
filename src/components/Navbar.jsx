@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import logo from '../assets/silverlogobgremoved.png';
+import recLogo from '../assets/reclogosilver.png';
 
 const navItems = [
   { id: 'about', label: 'About' },
   { id: 'tracks', label: 'Tracks' },
+  { id: 'template', label: 'PPT Template' },
   { id: 'timeline', label: 'Timeline' },
   { id: 'prizes', label: 'Prizes' },
   { id: 'faq', label: 'FAQ' },
@@ -16,15 +18,44 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 200;
+      // 1. Top of page check
+      if (window.scrollY < 80) {
+        setActiveSection('about');
+        return;
+      }
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
+      // 2. Bottom of page check
+      const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80);
+      if (isAtBottom) {
+        setActiveSection('faq');
+        return;
+      }
+
+      // 3. Find section with highest visible overlap in viewport
+      const viewportTop = 90; // Below fixed floating header
+      const viewportBottom = window.innerHeight;
+
+      let maxVisible = 0;
+      let bestSection = 'about';
+
+      for (let i = 0; i < navItems.length; i++) {
+        const elements = document.querySelectorAll(`[id="${navItems[i].id}"]`);
+        
+        elements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const visibleTop = Math.max(rect.top, viewportTop);
+          const visibleBottom = Math.min(rect.bottom, viewportBottom);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+          if (visibleHeight > maxVisible) {
+            maxVisible = visibleHeight;
+            bestSection = navItems[i].id;
+          }
+        });
+      }
+
+      if (maxVisible > 0) {
+        setActiveSection(bestSection);
       }
     };
 
@@ -52,8 +83,14 @@ const Navbar = () => {
     >
       <nav className="pointer-events-auto w-full max-w-6xl silver-glass rounded-full px-6 py-3.5 flex items-center justify-between shadow-[0_15px_35px_rgba(0,0,0,0.9)] border border-white/15 backdrop-blur-xl">
         
-        {/* Brand Logo with silverlogobgremoved.png */}
+        {/* Brand Logos (REC Logo + CyberHack Logo) */}
         <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="flex items-center space-x-3 group">
+          <img 
+            src={recLogo} 
+            alt="REC Logo" 
+            className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:scale-105 transition-transform duration-300"
+          />
+          <span className="h-5 w-[1px] bg-white/20" />
           <img 
             src={logo} 
             alt="CyberHack Logo" 
@@ -64,7 +101,7 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Animated Links with Active Section Highlighting */}
+        {/* Animated Links with Accurate Active Section Highlighting */}
         <div className="hidden md:flex items-center space-x-2 text-sm font-medium">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;

@@ -1,34 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Crown, Medal, ShieldAlert } from 'lucide-react';
+import { Trophy, ShieldAlert, Award } from 'lucide-react';
 
 const rules = [
-  "Eligibility: Undergraduate students from all Engineering & Technology disciplines across the REC campus.",
-  "Team Size: Teams must consist of 3 to 5 students.",
-  "Mandatory Rule: All cybersecurity testing must be conducted only within the authorized hackathon environment.",
-  "Evaluation Criteria: Problem Relevance (20%), Innovation & Originality (20%), Technical Implementation (20%).",
-  "Evaluation Criteria: Presentation & Impact (20%), Teamwork & Feasibility (20%)."
+  {
+    tag: "01",
+    title: "Eligibility Criteria (Exclusive REC Campus)",
+    detail: "Exclusive to students from Rajalakshmi Engineering College (REC) only. External college or university students are NOT eligible to participate."
+  },
+  {
+    tag: "02",
+    title: "Team Size & Formation",
+    detail: "Teams must consist of 4 members."
+  },
+  {
+    tag: "03",
+    title: "Mandatory Team Diversity",
+    detail: "Every team must have at least one female member mandatory."
+  },
+  {
+    tag: "04",
+    title: "Testing Environment & Compliance",
+    detail: "All cybersecurity testing must be conducted strictly within the authorized hackathon environment."
+  },
+  {
+    tag: "05",
+    title: "PPT Selection Round & Campus Finals",
+    detail: "All registered teams must submit their presentation deck (PPT) by 29th Sept. Only top qualifying teams selected from this PPT round will proceed to the 5.5 hour campus Finals on 9th Oct."
+  }
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 90, damping: 14 }
-  }
-};
 
 const PrizeRules = () => {
   return (
@@ -40,125 +40,104 @@ const PrizeRules = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-20 max-w-2xl mx-auto">
+        <div className="text-center mb-16 max-w-2xl mx-auto">
           <div className="inline-flex items-center space-x-2 text-zinc-400 font-mono text-xs tracking-widest uppercase mb-3">
             <span>// RECOVERY & REWARDS</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            Tiered Prize Pool.
+            Prize Pool.
           </h2>
           <p className="text-zinc-400 font-light text-sm md:text-base">
-            Top security solutions receive prestigious trophies, certificates of merit, and exclusive institutional recognition.
+            Top security solutions receive cash prizes, prestigious certificates of merit, and exclusive institutional recognition.
           </p>
         </div>
 
-        {/* 3-Column Prize Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-36"
-        >
-          {/* 2nd Place */}
+        {/* Unified ₹10,000 Prize Pool Showcase Banner */}
+        <div className="max-w-4xl mx-auto mb-32">
           <motion.div 
-            variants={cardVariants}
-            whileHover={{ y: -6 }}
-            className="p-8 md:p-10 rounded-2xl bg-zinc-950/70 backdrop-blur-md border border-white/15 flex flex-col items-center text-center justify-between shadow-xl order-2 md:order-1 self-end min-h-[380px] hover:border-white/35 transition-all"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="p-[2px] rounded-3xl animate-silver-border shadow-[0_0_50px_rgba(255,255,255,0.2)]"
           >
-            <div className="flex flex-col items-center">
-              <div className="p-4 rounded-xl bg-gradient-to-b from-zinc-700/40 to-zinc-900/60 border border-white/20 mb-6 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                <Medal size={40} className="text-zinc-200 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
-              </div>
-              
-              <span className="font-mono text-xs tracking-widest uppercase text-zinc-400 mb-2">// RUNNER UP</span>
-              <div className="text-5xl md:text-6xl font-black tracking-tighter text-zinc-100 mb-2 font-mono">2ND</div>
-              <div className="text-zinc-300 font-medium text-lg mb-1">Second Place</div>
-            </div>
-
-            <div className="w-full pt-6 border-t border-white/10 text-zinc-400 text-xs font-mono">
-              Trophy + Merit Certificate + Swag Pack
-            </div>
-          </motion.div>
-
-          {/* 1st Place - Animated Metallic Silver Frame */}
-          <motion.div 
-            variants={cardVariants}
-            whileHover={{ y: -8 }}
-            className="p-[2px] rounded-2xl animate-silver-border shadow-[0_0_40px_rgba(255,255,255,0.2)] order-1 md:order-2 md:-translate-y-4 relative z-20"
-          >
-            <div className="h-full p-10 md:p-14 rounded-[14px] bg-zinc-950/95 backdrop-blur-xl flex flex-col items-center text-center justify-between min-h-[440px]">
-              <div className="flex flex-col items-center">
-                <div className="p-5 rounded-2xl bg-gradient-to-b from-white/20 to-zinc-900/80 border border-white/40 mb-6 shadow-[0_0_25px_rgba(255,255,255,0.3)] animate-pulse">
-                  <Crown size={48} className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]" />
+            <div className="p-10 md:p-14 rounded-[22px] bg-zinc-950/95 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8">
+              <div className="flex flex-col items-center md:items-start">
+                <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-zinc-900 border border-white/20 text-zinc-300 font-mono text-xs uppercase tracking-widest mb-4">
+                  <Trophy size={14} className="text-white animate-pulse" />
+                  <span>TOTAL REWARDS</span>
                 </div>
-                
-                <span className="font-mono text-xs tracking-widest uppercase text-zinc-300 font-bold mb-2">// GRAND CHAMPIONS</span>
-                <div className="text-7xl md:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400 mb-2 font-mono">1ST</div>
-                <div className="text-zinc-100 font-bold text-xl mb-1">Grand Winner</div>
+                <h3 className="text-6xl sm:text-7xl md:text-8xl font-black font-mono tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400 mb-2">
+                  ₹10,000
+                </h3>
+                <p className="text-zinc-300 font-semibold text-lg md:text-xl tracking-wide">
+                  Grand Prize Pool
+                </p>
               </div>
 
-              <div className="w-full pt-6 border-t border-white/20 text-zinc-200 text-sm font-mono font-medium">
-                Grand Winner Trophy + Merit Certificate + Hardware Kit
+              <div className="w-full md:w-auto pt-6 md:pt-0 border-t md:border-t-0 md:border-l border-white/15 md:pl-10 flex flex-col space-y-4 text-zinc-300 text-sm md:text-base font-light">
+                <div className="flex items-center space-x-3 justify-center md:justify-start">
+                  <Award size={18} className="text-white shrink-0" />
+                  <span>Cash Prizes for Top Performing Teams</span>
+                </div>
+                <div className="flex items-center space-x-3 justify-center md:justify-start">
+                  <Award size={18} className="text-white shrink-0" />
+                  <span>Merit Certificates & Institutional Recognition</span>
+                </div>
+                <div className="flex items-center space-x-3 justify-center md:justify-start">
+                  <Award size={18} className="text-white shrink-0" />
+                  <span>Exclusive Hardware Kits & Swag Packs</span>
+                </div>
               </div>
             </div>
           </motion.div>
+        </div>
 
-          {/* 3rd Place */}
-          <motion.div 
-            variants={cardVariants}
-            whileHover={{ y: -6 }}
-            className="p-8 md:p-10 rounded-2xl bg-zinc-950/70 backdrop-blur-md border border-white/15 flex flex-col items-center text-center justify-between shadow-xl order-3 md:order-3 self-end min-h-[380px] hover:border-white/35 transition-all"
-          >
-            <div className="flex flex-col items-center">
-              <div className="p-4 rounded-xl bg-gradient-to-b from-zinc-800/40 to-zinc-950/60 border border-white/20 mb-6 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                <Award size={40} className="text-zinc-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
-              </div>
-              
-              <span className="font-mono text-xs tracking-widest uppercase text-zinc-400 mb-2">// 2ND RUNNER UP</span>
-              <div className="text-5xl md:text-6xl font-black tracking-tighter text-zinc-100 mb-2 font-mono">3RD</div>
-              <div className="text-amber-200/90 font-medium text-lg mb-1">Third Place</div>
-            </div>
-
-            <div className="w-full pt-6 border-t border-white/10 text-zinc-400 text-xs font-mono">
-              Trophy + Merit Certificate
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Rules & Evaluation Protocol Section */}
+        {/* Box-Free Sleek Rules & Guidelines Protocol Stream */}
         <div className="max-w-4xl mx-auto pt-16 border-t border-white/10">
-          <div className="flex items-center space-x-3 mb-10">
+          <div className="flex items-center space-x-3 mb-12">
             <div className="p-3 rounded-xl bg-zinc-900 border border-white/20 text-white">
               <ShieldAlert size={28} />
             </div>
             <div>
               <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest block">// OFFICIAL PROTOCOL</span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
-                Rules & Evaluation Protocol.
+                Rules & Guidelines.
               </h2>
             </div>
           </div>
           
-          <div className="space-y-4">
+          {/* Vertical Sleek Border-Stream Design */}
+          <div className="relative pl-6 md:pl-8 border-l border-white/15 space-y-10">
             {rules.map((rule, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -15 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="p-6 rounded-xl bg-zinc-950/70 border border-white/12 flex items-start space-x-5 hover:border-white/30 transition-colors duration-300 shadow-md"
+                className="relative group"
               >
-                <span className="font-mono text-white text-xs font-bold bg-zinc-900 px-3 py-1 rounded border border-white/20 shrink-0 mt-0.5">
-                  RULE 0{idx + 1}
-                </span>
-                <p className="text-base md:text-lg font-light leading-relaxed text-zinc-200">
-                  {rule}
+                {/* Glowing Node Circle on Line */}
+                <div className="absolute -left-[31px] md:-left-[39px] top-1 w-4 h-4 rounded-full bg-black border-2 border-white/60 group-hover:border-white group-hover:scale-125 transition-all shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+
+                <div className="flex items-center space-x-3 mb-1.5">
+                  <span className="font-mono text-xs font-bold text-white tracking-widest uppercase">
+                    RULE {rule.tag}
+                  </span>
+                  <span className="text-zinc-600">•</span>
+                  <span className="text-sm font-semibold text-zinc-300 font-mono tracking-wide group-hover:text-white transition-colors">
+                    {rule.title}
+                  </span>
+                </div>
+                
+                <p className="text-base md:text-lg font-light leading-relaxed text-zinc-300 group-hover:text-white transition-colors">
+                  {rule.detail}
                 </p>
               </motion.div>
             ))}
           </div>
+
         </div>
 
       </div>

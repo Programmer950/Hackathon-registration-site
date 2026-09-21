@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TracksGrid from './components/TracksGrid';
+import PPTTemplateSection from './components/PPTTemplateSection';
 import Timeline from './components/Timeline';
 import PrizeRules from './components/PrizeRules';
 import ContactFaculty from './components/ContactFaculty';
@@ -21,6 +22,7 @@ function App() {
         <PageBackground />
         <div className="relative z-10">
           <TracksGrid />
+          <PPTTemplateSection />
           <Timeline />
           <PrizeRules />
           <ContactFaculty />
