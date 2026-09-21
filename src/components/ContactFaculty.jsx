@@ -71,7 +71,7 @@ const ContactFaculty = () => {
           <div>
             <h3 className="text-xs font-mono tracking-widest uppercase text-zinc-400 mb-4">// Contact</h3>
             <div className="flex flex-col sm:flex-row gap-4 text-base font-mono">
-              {["hello@cybersentinels.com", "support@cybersentinels.com"].map((email) => (
+              {["xxxxxxxxx", "xxxxxxxxx"].map((email) => (
                 <button
                   key={email}
                   onClick={() => handleCopyEmail(email)}
