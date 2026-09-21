@@ -83,24 +83,24 @@ const Navbar = () => {
       initial={{ y: -70, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-6 left-0 right-0 z-50 px-6 md:px-16 flex justify-center pointer-events-none"
+      className="fixed top-4 sm:top-6 left-0 right-0 z-50 px-3 sm:px-6 md:px-16 flex justify-center pointer-events-none"
     >
-      <nav className="pointer-events-auto w-full max-w-7xl silver-glass rounded-full px-6 md:px-8 py-3.5 flex items-center justify-between shadow-[0_15px_35px_rgba(0,0,0,0.9)] border border-white/15 backdrop-blur-xl">
+      <nav className="pointer-events-auto w-full max-w-7xl silver-glass rounded-full px-3.5 sm:px-6 md:px-8 py-2.5 sm:py-3.5 flex items-center justify-between shadow-[0_15px_35px_rgba(0,0,0,0.9)] border border-white/15 backdrop-blur-xl">
         
         {/* Brand Logos (REC Logo + CyberHack Logo) */}
-        <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="flex items-center space-x-3 group">
+        <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="flex items-center space-x-1.5 sm:space-x-3 group shrink-0">
           <img 
             src={recLogo} 
             alt="REC Logo" 
-            className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:scale-105 transition-transform duration-300"
+            className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] group-hover:scale-105 transition-transform duration-300"
           />
-          <span className="h-5 w-[1px] bg-white/20" />
+          <span className="h-4 sm:h-5 w-[1px] bg-white/20" />
           <img 
             src={logo} 
             alt="CyberHack Logo" 
-            className="w-9 h-9 object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] group-hover:scale-105 transition-transform duration-300"
+            className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] group-hover:scale-105 transition-transform duration-300"
           />
-          <span className="font-display font-black text-xl tracking-tight text-white group-hover:text-zinc-200 transition-colors">
+          <span className="font-display font-black text-xs sm:text-lg md:text-xl tracking-tight text-white group-hover:text-zinc-200 transition-colors whitespace-nowrap">
             CYBER<span className="bg-gradient-to-r from-zinc-200 via-white to-zinc-400 bg-clip-text text-transparent">HACK</span>
           </span>
         </a>
@@ -132,11 +132,11 @@ const Navbar = () => {
         </div>
 
         {/* Magnetic Action CTA */}
-        <div>
+        <div className="shrink-0">
           <MagneticButton
             href="#tracks"
             onClick={(e) => handleNavClick(e, 'tracks')}
-            className="px-5 py-2 rounded-full bg-gradient-to-r from-white via-zinc-200 to-zinc-400 text-black font-semibold text-xs tracking-wide uppercase shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all border border-white/40"
+            className="px-3 py-1.5 sm:px-5 sm:py-2 rounded-full bg-gradient-to-r from-white via-zinc-200 to-zinc-400 text-black font-semibold text-[10px] sm:text-xs tracking-wide uppercase shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all border border-white/40 whitespace-nowrap"
           >
             <span>Register Now</span>
           </MagneticButton>

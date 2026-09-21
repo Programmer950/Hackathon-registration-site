@@ -47,7 +47,7 @@ const COMMAND_OUTPUTS = {
   prizes: [
     { text: "[$] REWARDS & PRIZE POOL ALLOCATION", color: "text-white font-bold" },
     { text: "  Grand Prize Pool: ₹10,000 Total Rewards", color: "text-emerald-400 font-bold" },
-    { text: "  Includes: Cash Prizes, Merit Certificates, Hardware Kits & Swag Packs", color: "text-zinc-300" }
+    { text: "  Includes: Cash Prizes & Official Merit Certificates", color: "text-zinc-300" }
   ]
 };
 

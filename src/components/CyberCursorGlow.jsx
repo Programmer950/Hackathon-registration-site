@@ -45,7 +45,7 @@ const CyberCursorGlow = () => {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
-      {/* Outer Specular Metallic Ambient Glow (Soft Spring Follow) */}
+      {/* Subtle Micro Ambient Glow (Reduced size & opacity, pure neutral monochrome) */}
       <motion.div
         style={{
           x: glowX,
@@ -54,11 +54,11 @@ const CyberCursorGlow = () => {
           translateY: '-50%',
         }}
         animate={{
-          scale: isHovered ? 1.4 : 1,
-          opacity: isHovered ? 0.35 : 0.18,
+          scale: isHovered ? 1.25 : 1,
+          opacity: isHovered ? 0.12 : 0.05,
         }}
         transition={{ duration: 0.2 }}
-        className="w-[260px] h-[260px] rounded-full bg-gradient-to-r from-white/10 via-zinc-400/5 to-white/10 blur-3xl pointer-events-none"
+        className="w-[80px] h-[80px] rounded-full bg-white/20 blur-xl pointer-events-none"
       />
 
       {/* Instant Zero-Lag Custom Image Cursor */}
@@ -73,10 +73,10 @@ const CyberCursorGlow = () => {
           src={cursorIcon} 
           alt="Custom Cursor" 
           animate={{
-            scale: isHovered ? 1.2 : 1,
+            scale: isHovered ? 1.15 : 1,
           }}
           transition={{ duration: 0.15 }}
-          className="w-6 h-6 object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.6)] pointer-events-none select-none" 
+          className="w-5 h-5 object-contain grayscale filter drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] drop-shadow-[0_0_2px_rgba(255,255,255,0.2)] pointer-events-none select-none" 
         />
       </div>
     </div>

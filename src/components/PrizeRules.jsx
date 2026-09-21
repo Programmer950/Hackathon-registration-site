@@ -82,11 +82,7 @@ const PrizeRules = () => {
                 </div>
                 <div className="flex items-center space-x-3 justify-center md:justify-start">
                   <Award size={18} className="text-white shrink-0" />
-                  <span>Merit Certificates & Institutional Recognition</span>
-                </div>
-                <div className="flex items-center space-x-3 justify-center md:justify-start">
-                  <Award size={18} className="text-white shrink-0" />
-                  <span>Exclusive Hardware Kits & Swag Packs</span>
+                  <span>Official Merit Certificates & Institutional Recognition</span>
                 </div>
               </div>
             </div>

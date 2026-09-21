@@ -30,7 +30,7 @@ const overviewPillars = [
     phase: "PHASE 04",
     icon: <Trophy size={22} className="text-white" />,
     title: "₹10,000 Rewards & Honors",
-    description: "Top performing security solutions earn a share of the ₹10,000 grand prize pool, official merit certificates, hardware kits, and institutional recognition."
+    description: "Top performing security solutions earn a share of the ₹10,000 grand prize pool, official merit certificates, and institutional recognition."
   }
 ];
 

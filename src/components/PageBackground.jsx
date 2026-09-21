@@ -80,7 +80,7 @@ const PageBackground = () => {
             left: spot.left || 'auto',
             right: spot.right || 'auto',
           }}
-          className="w-[700px] h-[700px] bg-gradient-to-tr from-zinc-200/30 via-slate-300/18 to-transparent rounded-full blur-3xl pointer-events-none" 
+          className="w-[700px] h-[700px] bg-gradient-to-tr from-zinc-200/25 via-zinc-400/12 to-transparent rounded-full blur-3xl pointer-events-none" 
         />
       ))}
 
