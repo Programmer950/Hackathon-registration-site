@@ -2,124 +2,117 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const PageBackground = () => {
+  // Continuous fluid silver spotlights spaced down non-hero sections
+  const spotlightPositions = [
+    { top: '4%', left: '-8%', align: 'left' },
+    { top: '18%', right: '-8%', align: 'right' },
+    { top: '32%', left: '-8%', align: 'left' },
+    { top: '48%', right: '-8%', align: 'right' },
+    { top: '62%', left: '-8%', align: 'left' },
+    { top: '78%', right: '-8%', align: 'right' },
+    { top: '90%', left: '-8%', align: 'left' },
+  ];
+
   return (
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none bg-black">
       
-      {/* Animated Subtle Micro-Dot Matrix Pattern */}
-      <motion.div 
-        animate={{ 
-          opacity: [0.12, 0.22, 0.12],
-          backgroundPosition: ['0px 0px', '14px 14px', '0px 0px']
-        }}
-        transition={{ 
-          duration: 12, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
-        }}
-        className="absolute inset-0" 
-        style={{ 
-          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.35) 1.2px, transparent 1.2px)`,
-          backgroundSize: '28px 28px' 
-        }} 
-      />
+      {/* 1. Animated Organic Liquid Silver SVG Wave Ribbon (NO DOTS) */}
+      <svg className="absolute inset-0 w-full h-full opacity-20" preserveAspectRatio="none" viewBox="0 0 1440 3200">
+        <defs>
+          <linearGradient id="silverWaveGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="#a1a1aa" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="#3f3f46" stopOpacity="0" />
+          </linearGradient>
 
-      {/* Subtle Metallic Linear Grid Lines */}
-      <div 
-        className="absolute inset-0 opacity-[0.04]" 
-        style={{ 
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px)`,
-          backgroundSize: '100px 100px' 
-        }} 
-      />
+          <linearGradient id="silverWaveGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#e4e4e7" stopOpacity="0.25" />
+            <stop offset="70%" stopColor="#71717a" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+          </linearGradient>
+        </defs>
 
-      {/* Slow Moving Metallic Grid Scanning Beam */}
-      <motion.div
-        animate={{ y: ['-20%', '120%'] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-        className="absolute left-0 right-0 h-40 bg-gradient-to-b from-transparent via-white/[0.04] to-transparent pointer-events-none"
-      />
-
-      {/* Ambient Breathing Liquid Silver Gradient Spotlights */}
-      {/* Spotlight 1: Top Left */}
-      <motion.div 
-        animate={{ 
-          x: [0, 50, -30, 0],
-          y: [0, -40, 30, 0],
-          scale: [1, 1.15, 0.95, 1],
-          opacity: [0.1, 0.2, 0.12, 0.1]
-        }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[8%] left-[-10%] w-[700px] h-[700px] bg-gradient-to-tr from-zinc-400/20 via-slate-300/10 to-transparent rounded-full blur-[160px]" 
-      />
-
-      {/* Spotlight 2: Top Right */}
-      <motion.div 
-        animate={{ 
-          x: [0, -60, 40, 0],
-          y: [0, 50, -40, 0],
-          scale: [1, 0.9, 1.12, 1],
-          opacity: [0.12, 0.22, 0.15, 0.12]
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[32%] right-[-10%] w-[750px] h-[750px] bg-gradient-to-bl from-white/15 via-zinc-400/10 to-transparent rounded-full blur-[170px]" 
-      />
-
-      {/* Spotlight 3: Mid Left */}
-      <motion.div 
-        animate={{ 
-          x: [0, 60, -40, 0],
-          y: [0, -30, 50, 0],
-          scale: [1, 1.2, 0.9, 1],
-          opacity: [0.1, 0.18, 0.12, 0.1]
-        }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[58%] left-[-8%] w-[800px] h-[800px] bg-gradient-to-t from-zinc-500/20 via-slate-200/8 to-transparent rounded-full blur-[180px]" 
-      />
-
-      {/* Spotlight 4: Bottom Right */}
-      <motion.div 
-        animate={{ 
-          x: [0, -50, 30, 0],
-          y: [0, 40, -50, 0],
-          scale: [1, 0.95, 1.15, 1],
-          opacity: [0.1, 0.2, 0.12, 0.1]
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[82%] right-[-5%] w-[750px] h-[750px] bg-gradient-to-tl from-white/12 via-zinc-400/8 to-transparent rounded-full blur-[160px]" 
-      />
-
-      {/* Floating Pin-Point Silver Micro Particles */}
-      {[
-        { top: '15%', left: '12%', size: 3, delay: 0 },
-        { top: '28%', left: '85%', size: 4, delay: 2 },
-        { top: '42%', left: '22%', size: 3, delay: 1 },
-        { top: '55%', left: '78%', size: 4, delay: 3 },
-        { top: '70%', left: '15%', size: 3, delay: 1.5 },
-        { top: '85%', left: '88%', size: 4, delay: 0.5 },
-      ].map((pt, idx) => (
-        <motion.div
-          key={idx}
+        {/* Dynamic Curved Wave Paths */}
+        <motion.path
           animate={{
-            y: [0, -25, 0],
-            opacity: [0.2, 0.7, 0.2],
-            scale: [1, 1.3, 1]
+            d: [
+              "M 0 300 Q 360 150 720 300 T 1440 300 L 1440 3200 L 0 3200 Z",
+              "M 0 300 Q 360 450 720 300 T 1440 300 L 1440 3200 L 0 3200 Z",
+              "M 0 300 Q 360 150 720 300 T 1440 300 L 1440 3200 L 0 3200 Z"
+            ]
           }}
-          transition={{
-            duration: 6 + idx,
-            repeat: Infinity,
-            delay: pt.delay,
-            ease: "easeInOut"
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          fill="url(#silverWaveGrad1)"
+        />
+
+        <motion.path
+          animate={{
+            d: [
+              "M 0 1200 Q 450 1000 900 1200 T 1440 1200 L 1440 3200 L 0 3200 Z",
+              "M 0 1200 Q 450 1400 900 1200 T 1440 1200 L 1440 3200 L 0 3200 Z",
+              "M 0 1200 Q 450 1000 900 1200 T 1440 1200 L 1440 3200 L 0 3200 Z"
+            ]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          fill="url(#silverWaveGrad2)"
+        />
+      </svg>
+
+      {/* 2. Fluid Moving Silver Specular Light Pools */}
+      {spotlightPositions.map((spot, idx) => (
+        <motion.div 
+          key={idx}
+          animate={{ 
+            x: spot.align === 'left' ? [0, 90, -50, 0] : [0, -90, 50, 0],
+            y: [0, -60, 60, 0],
+            scale: [1, 1.25, 0.88, 1],
+            opacity: [0.22, 0.42, 0.25, 0.22]
+          }}
+          transition={{ 
+            duration: 11 + (idx % 4), 
+            repeat: Infinity, 
+            delay: idx * 0.6, 
+            ease: "easeInOut" 
           }}
           style={{
             position: 'absolute',
-            top: pt.top,
-            left: pt.left,
-            width: pt.size,
-            height: pt.size,
+            top: spot.top,
+            left: spot.left || 'auto',
+            right: spot.right || 'auto',
           }}
-          className="rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+          className="w-[700px] h-[700px] bg-gradient-to-tr from-zinc-200/30 via-slate-300/18 to-transparent rounded-full blur-3xl pointer-events-none" 
         />
       ))}
+
+      {/* 3. Floating 3D Geometric Wireframe Accents (NO DOTS) */}
+      <motion.div
+        animate={{ rotate: 360, scale: [1, 1.08, 1] }}
+        transition={{ rotate: { duration: 55, repeat: Infinity, ease: "linear" }, scale: { duration: 8, repeat: Infinity, ease: "easeInOut" } }}
+        className="absolute top-[10%] right-[7%] w-[350px] h-[350px] rounded-full border border-white/15 pointer-events-none"
+      />
+
+      <motion.div
+        animate={{ rotate: -360, scale: [1, 1.12, 1] }}
+        transition={{ rotate: { duration: 70, repeat: Infinity, ease: "linear" }, scale: { duration: 10, repeat: Infinity, ease: "easeInOut" } }}
+        className="absolute top-[45%] left-[6%] w-[420px] h-[420px] rounded-full border border-white/10 pointer-events-none"
+      />
+
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[80%] right-[8%] w-[380px] h-[380px] rounded-full border border-white/15 pointer-events-none"
+      />
+
+      {/* 4. Subtle Floating Light Rays */}
+      <motion.div
+        animate={{ 
+          opacity: [0.1, 0.25, 0.1],
+          y: ['0%', '100%']
+        }}
+        transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+        className="absolute left-0 right-0 h-48 bg-gradient-to-b from-transparent via-white/10 to-transparent pointer-events-none"
+      />
+
     </div>
   );
 };

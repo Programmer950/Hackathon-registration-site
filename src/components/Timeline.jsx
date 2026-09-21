@@ -66,12 +66,12 @@ const Timeline = () => {
   const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="timeline" ref={containerRef} className="px-6 md:px-16 py-32 bg-transparent relative overflow-hidden border-t border-white/10">
+    <section id="timeline" ref={containerRef} className="px-6 md:px-16 py-32 bg-transparent relative overflow-hidden">
       
       {/* Background Decorative Ambient Glow */}
       <div className="absolute top-1/2 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 max-w-2xl mx-auto">
           <div className="inline-flex items-center space-x-2 text-zinc-400 font-mono text-xs tracking-widest uppercase mb-3">
             <span>// EVENT SCHEDULE</span>

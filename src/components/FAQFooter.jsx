@@ -74,7 +74,7 @@ const FAQFooter = () => {
   return (
     <>
       {/* FAQ Section */}
-      <section id="faq" className="px-8 md:px-16 py-32 bg-transparent border-t border-white/10">
+      <section id="faq" className="px-8 md:px-16 py-32 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ const FAQFooter = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 flex flex-col bg-transparent">
+      <footer className="flex flex-col bg-transparent">
         {/* Large Apply Now Metallic Chrome CTA */}
         <motion.a 
           initial={{ opacity: 0, y: 30 }}

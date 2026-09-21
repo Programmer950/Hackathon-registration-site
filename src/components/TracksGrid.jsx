@@ -71,7 +71,7 @@ const TracksGrid = () => {
     : categoriesData.filter(cat => cat.id === activeTab);
 
   return (
-    <section id="tracks" className="px-6 md:px-16 py-32 bg-transparent relative border-t border-white/10 overflow-hidden">
+    <section id="tracks" className="px-6 md:px-16 py-32 bg-transparent relative overflow-hidden">
       {/* Background Ambient Decorative Light Spotlights */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-zinc-400/5 rounded-full blur-3xl pointer-events-none" />

@@ -49,7 +49,7 @@ const ContactFaculty = () => {
   };
 
   return (
-    <section id="faq" className="px-6 md:px-16 py-20 bg-transparent border-t border-white/10">
+    <section id="faq" className="px-6 md:px-16 py-20 bg-transparent">
       <div className="max-w-7xl mx-auto flex flex-col gap-14">
         
         {/* Compact Location & Contact Row */}

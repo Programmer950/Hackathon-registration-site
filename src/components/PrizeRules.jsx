@@ -32,7 +32,7 @@ const rules = [
 
 const PrizeRules = () => {
   return (
-    <section id="prizes" className="px-6 md:px-16 py-32 bg-transparent relative overflow-hidden border-t border-white/10">
+    <section id="prizes" className="px-6 md:px-16 py-32 bg-transparent relative overflow-hidden">
       
       {/* Background Ambient Silver Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-r from-zinc-500/10 via-white/5 to-zinc-400/10 rounded-full blur-[140px] pointer-events-none" />
