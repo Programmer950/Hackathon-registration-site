@@ -68,9 +68,13 @@ const Navbar = () => {
     e.preventDefault();
     const element = document.getElementById(targetId);
     if (element) {
-      const yOffset = -90;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      if (window.lenis) {
+        window.lenis.scrollTo(element, { offset: -90, duration: 1.2 });
+      } else {
+        const yOffset = -90;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     }
   };
 

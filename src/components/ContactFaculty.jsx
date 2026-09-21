@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { User, Award, Shield } from 'lucide-react';
 
 const facultyData = {
@@ -44,7 +45,13 @@ const ContactFaculty = () => {
       <div className="max-w-7xl mx-auto flex flex-col gap-14">
         
         {/* Compact Location & Contact Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+        >
           <div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">Location.</h2>
             <address className="not-italic text-base md:text-lg font-light leading-relaxed text-zinc-300">
@@ -64,10 +71,16 @@ const ContactFaculty = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Compact & Structured Faculty Section */}
-        <div className="pt-10 border-t border-white/10">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="pt-10 border-t border-white/10"
+        >
           <div className="inline-flex items-center space-x-2 text-zinc-400 font-mono text-xs tracking-widest uppercase mb-8">
             <Shield size={14} className="text-zinc-300" />
             <span>// FACULTY COORDINATION & LEADERSHIP</span>
@@ -76,7 +89,13 @@ const ContactFaculty = () => {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 items-stretch">
             
             {/* Convener Card (Spans 1 column on large) */}
-            <div className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/90 border border-white/20 flex flex-col justify-between shadow-lg relative overflow-hidden group hover:border-white/40 transition-all">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/90 border border-white/20 flex flex-col justify-between shadow-lg relative overflow-hidden group hover:border-white/40 transition-all"
+            >
               <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-xl pointer-events-none" />
               <div>
                 <span className="font-mono text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded bg-zinc-900 border border-white/20 text-white font-semibold inline-block mb-3">
@@ -90,11 +109,18 @@ const ContactFaculty = () => {
               <p className="text-[11px] text-zinc-400 font-mono mt-4 pt-3 border-t border-white/10">
                 {facultyData.convener.department}
               </p>
-            </div>
+            </motion.div>
 
             {/* Co-Convenors Cards (2 items, 2 cols on lg) */}
             {facultyData.coConvenors.map((item, idx) => (
-              <div key={idx} className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/70 border border-white/12 hover:border-white/30 transition-all duration-300 flex flex-col justify-between">
+              <motion.div 
+                key={idx} 
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 + idx * 0.08 }}
+                className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/70 border border-white/12 hover:border-white/30 transition-all duration-300 flex flex-col justify-between"
+              >
                 <div>
                   <span className="font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-zinc-900 border border-white/15 text-zinc-300 inline-block mb-3">
                     {item.role}
@@ -107,12 +133,19 @@ const ContactFaculty = () => {
                 <p className="text-[11px] text-zinc-400 font-mono mt-4 pt-3 border-t border-white/10">
                   {item.department}
                 </p>
-              </div>
+              </motion.div>
             ))}
 
             {/* Coordinators Cards (2 items, 2 cols on lg) */}
             {facultyData.coordinators.map((item, idx) => (
-              <div key={idx} className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/70 border border-white/12 hover:border-white/30 transition-all duration-300 flex flex-col justify-between">
+              <motion.div 
+                key={idx} 
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.35 + idx * 0.08 }}
+                className="lg:col-span-1 p-5 rounded-xl bg-zinc-950/70 border border-white/12 hover:border-white/30 transition-all duration-300 flex flex-col justify-between"
+              >
                 <div>
                   <span className="font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-zinc-900 border border-white/15 text-zinc-300 inline-block mb-3">
                     {item.role}
@@ -125,11 +158,11 @@ const ContactFaculty = () => {
                 <p className="text-[11px] text-zinc-400 font-mono mt-4 pt-3 border-t border-white/10">
                   {item.department}
                 </p>
-              </div>
+              </motion.div>
             ))}
 
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -28,9 +28,15 @@ const faqs = [
   }
 ];
 
-const FAQItem = ({ faq, isOpen, onClick }) => {
+const FAQItem = ({ faq, isOpen, onClick, index }) => {
   return (
-    <div className="py-8 border-b border-white/10 last:border-0">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+      className="py-8 border-b border-white/10 last:border-0"
+    >
       <button 
         className="w-full flex items-center justify-between text-left focus:outline-none group cursor-pointer"
         onClick={onClick}
@@ -58,7 +64,7 @@ const FAQItem = ({ faq, isOpen, onClick }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 
@@ -70,11 +76,21 @@ const FAQFooter = () => {
       {/* FAQ Section */}
       <section id="faq" className="px-8 md:px-16 py-32 bg-transparent border-t border-white/10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-16">FAQ.</h2>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-16"
+          >
+            FAQ.
+          </motion.h2>
+
           <div className="max-w-4xl">
             {faqs.map((faq, idx) => (
               <FAQItem 
                 key={idx} 
+                index={idx}
                 faq={faq} 
                 isOpen={openIndex === idx} 
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)} 
@@ -87,7 +103,11 @@ const FAQFooter = () => {
       {/* Footer */}
       <footer className="border-t border-white/10 flex flex-col bg-transparent">
         {/* Large Apply Now Metallic Chrome CTA */}
-        <a 
+        <motion.a 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           href="https://forms.google.com" 
           target="_blank" 
           rel="noopener noreferrer"
@@ -99,7 +119,7 @@ const FAQFooter = () => {
               →
             </span>
           </div>
-        </a>
+        </motion.a>
 
         {/* Bottom Bar */}
         <div className="px-8 md:px-16 py-8 flex flex-col md:flex-row items-center justify-between text-sm text-zinc-400 font-mono tracking-wide max-w-7xl mx-auto w-full">

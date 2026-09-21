@@ -40,7 +40,13 @@ const PPTTemplateSection = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header with PPT Download CTA */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8"
+        >
           <div className="max-w-2xl">
             <div className="inline-flex items-center space-x-2 text-zinc-400 font-mono text-xs tracking-widest uppercase mb-3">
               <FileText size={14} className="text-zinc-300" />
@@ -66,17 +72,17 @@ const PPTTemplateSection = () => {
               </span>
             </MagneticButton>
           </div>
-        </div>
+        </motion.div>
 
         {/* Box-Free Multi-Column Event Summary Stream */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 relative">
           {overviewPillars.map((pillar, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
               className="relative pl-6 border-l border-white/15 flex flex-col justify-between group hover:border-white/40 transition-colors"
             >
               <div>
@@ -106,13 +112,19 @@ const PPTTemplateSection = () => {
         </div>
 
         {/* Submission Instruction Banner */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-zinc-400 gap-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-zinc-400 gap-4"
+        >
           <div className="flex items-center space-x-2">
             <CheckCircle2 size={15} className="text-white" />
             <span>DEADLINE: 29th Sept 2026 • 11:59 PM (PPTX or PDF Format)</span>
           </div>
           <span className="text-zinc-500">// SELECTION RESULTS WILL BE ANNOUNCED ON PORTAL</span>
-        </div>
+        </motion.div>
 
       </div>
     </section>
